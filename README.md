@@ -250,4 +250,12 @@ text
 
 ```
 
-    
+## Première migration
+
+    php bin/console make:migration
+
+    success :  created: migrations/Version20240903142811.php
+
+puis
+
+    php bin/console doctrine:migrations:migrate
