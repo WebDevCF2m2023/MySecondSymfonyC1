@@ -173,6 +173,9 @@ Dans le fichier `.env.local`
 Trouvez la ligne de base de données :
 
 ```bash
+# ne pas oublier de remettre en dev
+APP_ENV=dev
+
 # DATABASE_URL="mysql://app:!ChangeMe!@127.0.0.1:3306/app?serverVersion=8.0.32&charset=utf8mb4"
 # DATABASE_URL="mysql://app:!ChangeMe!@127.0.0.1:3306/app?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
 DATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8"
@@ -180,7 +183,7 @@ DATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&ch
 
 Commentez la ligne postgresql et décommentez la ligne mysql
 
-Ensuite passez vos paramètres de connexion dans l'ordre
+Passez vos paramètres de connexion dans l'ordre
 
 utilisateur:mot_de_passe@ip_serveur:port/nomdelaDB?options
 
@@ -198,6 +201,53 @@ La base de donnée devrait être créée si mysql.exe est activé ou Wamp démar
 
 ## Création d'une entité
 
-    
+Une entité est la représentation objet d'un élément de sauvegarde de données, dans notre cas, en choisissant mysql, il s'agira d'une table
+
+    php bin/console make:entity
+
+```bash
+ php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. FierceGnome):
+ > Article
+Article
+
+ Add the ability to broadcast entity updates using Symfony UX Turbo? (yes/no) [no]:
+ > no
+
+ created: src/Entity/Article.php
+ created: src/Repository/ArticleRepository.php
+
+ New property name (press <return> to stop adding fields):
+ >
+  Success!
+  
+
+ php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. GrumpyChef):
+ > Article
+Article
+
+ Your entity already exists! So let's add some new fields!
+
+ New property name (press <return> to stop adding fields):
+ > title
+
+ Field type (enter ? to see all types) [string]:
+ >
+
+
+ Field length [255]:
+ > 160
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ >
+
+ updated: src/Entity/Article.php
+
+text
+
+```
 
     
