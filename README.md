@@ -40,3 +40,6 @@ Le nom doit être en PascalCase terminé par Controller, mais Symfony se charge 
     created: src/Controller/HomeController.php
     created: templates/home/index.html.twig
 
+On va vérifier la route par défaut
+
+    php bin/console debug:route
