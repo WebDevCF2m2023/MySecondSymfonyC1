@@ -458,3 +458,27 @@ On va importer bootstrap
 
 La mise à jour a été effectuée uniquement dans `importmap.php`
 
+Pour tester, on va d'abord trouver les templates `bootstrap` à cette adresse : https://symfony.com/doc/current/form/form_themes.html
+
+Donc pour les formulaires `bootstrap`
+
+```yaml
+# config/packages/twig.yaml
+twig:
+form_themes: ['bootstrap_5_horizontal_layout.html.twig']
+# ...
+```
+
+Le code `bootstrap` est généré, mais il manque le style !
+
+dans `assets/app.js` on ajoute le lien vers le `css`
+
+```js
+import './vendor/bootstrap/dist/css/bootstrap.min.css';
+import './styles/app.css';
+```
+Et nos formulaires sont jolis !
+
+On peut utiliser toutes les classes de `bootstrap`
+
+## Manipulation des formulaires
