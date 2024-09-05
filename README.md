@@ -344,9 +344,7 @@ La documentation sur les colonnes (champs) dans `Doctrine` :
 https://www.doctrine-project.org/projects/doctrine-orm/en/3.2/reference/attributes-reference.html#attrref_column
 
 ```php
-```php
 // src/Entity/Article.php
-
 
 #...
 
@@ -399,3 +397,22 @@ https://www.doctrine-project.org/projects/doctrine-orm/en/3.2/reference/attribut
 ```
 
 Vous pouvez migrer vers la DB, et voir le format colle à vos exigences MySQL en regardant la DB
+
+## Création du `CRUD` de `Article`
+
+    php bin/console make:crud
+
+Génère les fichiers de CRUD, vues et tests (si choisis)
+
+    created: src/Controller/AdminArticleController.php
+    created: src/Form/ArticleType.php
+    created: templates/admin_article/_delete_form.html.twig
+    created: templates/admin_article/_form.html.twig
+    created: templates/admin_article/edit.html.twig
+    created: templates/admin_article/index.html.twig
+    created: templates/admin_article/new.html.twig
+    created: templates/admin_article/show.html.twig
+    created: tests/Controller/ArticleControllerTest.php
+
+On a rajouté
+
