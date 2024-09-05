@@ -414,5 +414,16 @@ Génère les fichiers de CRUD, vues et tests (si choisis)
     created: templates/admin_article/show.html.twig
     created: tests/Controller/ArticleControllerTest.php
 
-On a rajouté
+On a rajouté le chemin dans le `menu.html.twig`
+
+On l'a trouvé avec `php bin/console debug:route`
+
+```twig
+<nav>
+    {# on utilise path('nom_du_chemin') lorsqu'on veut un lien vers une page #}
+    <a href="{{ path('homepage') }}">Homepage</a>
+    <a href="{{ path('about_me') }}">About me</a>
+    <a href="{{ path('app_admin_article_index') }}">CRUD Article</a>
+</nav>
+```
 
