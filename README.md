@@ -427,3 +427,34 @@ On l'a trouvé avec `php bin/console debug:route`
 </nav>
 ```
 
+On peut mettre l'include dans `templates/base.html.twig`, pour éviter de devoir le faire sur toutes les pages (on le retire de l'index et about)
+
+```twig
+ <body>
+        {% block nav %}
+            {% include 'home/menu.html.twig' %}
+        {% endblock %}
+        {% block body %}{% endblock %}
+    </body>
+```
+
+### Mise en forme des formulaires et des pages avec `bootstrap`
+
+Nous allons utiliser les assets qui se trouvent dans le dossier `assets`
+
+Documentation :
+
+Différence AssetMapper et Webpack Encore : https://symfony.com/doc/6.4/frontend.html#using-php-twig
+
+### `AssetMapper`
+
+Documentation : https://symfony.com/doc/6.4/frontend/asset_mapper.html
+
+On va importer bootstrap
+
+    php bin/console importmap:require bootstrap
+
+    [OK] 3 new items (bootstrap, @popperjs/core, bootstrap/dist/css/bootstrap.min.css) added to the importmap.php!
+
+La mise à jour a été effectuée uniquement dans `importmap.php`
+
