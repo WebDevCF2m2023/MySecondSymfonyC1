@@ -259,3 +259,59 @@ text
 puis
 
     php bin/console doctrine:migrations:migrate
+
+## Ajout de champs à l'entité `Article`
+
+On utilise maker pour ça
+
+    php bin/console make:entity Article
+
+```php
+// src/Entity/Article.php
+
+
+#...
+
+#[ORM\Entity(repositoryClass: ArticleRepository::class)]
+class Article
+{
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
+    #[ORM\Column(length: 160)]
+    private ?string $title = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $text = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $date_created = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $date_published = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $published = null;
+
+    # ... getters and setters sauf pour les booleans
+
+    // ! pour boolean, is est rajouté pour le getter
+    // bug si on avait choisi isPublished -> isPublished
+    public function isPublished(): ?bool
+    {
+        return $this->published;
+    }
+    
+    // Le setter peut boguer si on avait choisi comme nom
+    // isPublished -> setPublished
+    public function setPublished(?bool $published): static
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+}
+
+```
